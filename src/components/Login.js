@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
+import { Link } from "react-router-dom";
 
 class Login extends Component {
   state = {
@@ -56,9 +57,11 @@ class Login extends Component {
               </option>
             ))}
           </select>
-          <button className="btn" type="submit">
-            Submit
-          </button>
+          <Link to="/dashboard">
+            <button className="btn" type="submit">
+              Submit
+            </button>
+          </Link>
         </form>
       </div>
     );
