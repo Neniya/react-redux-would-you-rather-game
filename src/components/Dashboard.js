@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import QuestionsList from "./QurthionsList";
 
 class Dashboard extends Component {
   state = {
@@ -23,17 +24,9 @@ class Dashboard extends Component {
         </button>
 
         {this.state.answeredQuestionPage ? (
-          <ul>
-            {this.props.answeredQuestions.map((questionId) => (
-              <li key={questionId}>{questionId}</li>
-            ))}
-          </ul>
+          <QuestionsList questions={this.props.answeredQuestions} />
         ) : (
-          <ul>
-            {this.props.unansweredQuestions.map((questionId) => (
-              <li key={questionId}>{questionId}</li>
-            ))}
-          </ul>
+          <QuestionsList questions={this.props.unansweredQuestions} />
         )}
       </div>
     );
