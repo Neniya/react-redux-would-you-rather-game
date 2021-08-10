@@ -24,9 +24,15 @@ class Dashboard extends Component {
         </button>
 
         {this.state.answeredQuestionPage ? (
-          <QuestionsList questions={this.props.answeredQuestions} />
+          <QuestionsList
+            questions={this.props.answeredQuestions}
+            answered={true}
+          />
         ) : (
-          <QuestionsList questions={this.props.unansweredQuestions} />
+          <QuestionsList
+            questions={this.props.unansweredQuestions}
+            answered={false}
+          />
         )}
       </div>
     );
@@ -48,15 +54,6 @@ function mapStateToProps({ questions, authedUser, users }) {
     user,
     answeredQuestions,
     unansweredQuestions,
-
-    questionsIds:
-      //{
-      //     answerd:
-      //     unanswerd:
-      // }
-      Object.keys(questions).sort(
-        (a, b) => questions[b].timestamp - questions[a].timestamp
-      ),
   };
 }
 
