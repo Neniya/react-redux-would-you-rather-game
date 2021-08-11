@@ -11,17 +11,54 @@ class Dashboard extends Component {
     this.setState(() => ({
       answeredQuestionPage: answered,
     }));
+    if (answered) {
+      document
+        .getElementById("unanswerd-button")
+        .classList.remove("active-button");
+      document
+        .getElementById("unanswerd-button")
+        .classList.add("question-button");
+      console.log(document.getElementById("unanswerd-button").classList);
+      document.getElementById("answerd-button").classList.add("active-button");
+      document
+        .getElementById("answerd-button")
+        .classList.remove("question-button");
+      console.log(document.getElementById("answerd-button").classList);
+    } else {
+      document
+        .getElementById("unanswerd-button")
+        .classList.add("active-button");
+      document
+        .getElementById("answerd-button")
+        .classList.add("question-button");
+      document
+        .getElementById("answerd-button")
+        .classList.remove("active-button");
+      document
+        .getElementById("unanswerd-button")
+        .classList.remove("question-button");
+    }
   };
   render() {
     console.log("dashboard", this.props);
     return (
-      <div>
-        <button onClick={() => this.changeQuestionPage(false)}>
-          Unanswerd Questions
-        </button>
-        <button onClick={() => this.changeQuestionPage(true)}>
-          Answerd Questions
-        </button>
+      <div className="question-list">
+        <div className="switch-buttons">
+          <button
+            id="unanswerd-button"
+            className="active-button"
+            onClick={() => this.changeQuestionPage(false)}
+          >
+            <b> Unanswerd Questions </b>
+          </button>
+          <button
+            id="answerd-button"
+            className="question-button "
+            onClick={() => this.changeQuestionPage(true)}
+          >
+            <b>Answerd Questions</b>
+          </button>
+        </div>
 
         {this.state.answeredQuestionPage ? (
           <QuestionsList

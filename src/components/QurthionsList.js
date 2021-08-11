@@ -4,10 +4,14 @@ import Question from "./Question";
 class QuestionsList extends Component {
   render() {
     return (
-      <ul>
+      <ul className="list">
         {this.props.questions.map((questionId) => (
           <li key={questionId}>
-            <Question id={questionId} answered={this.props.answered} />
+            <Question
+              id={questionId}
+              answered={this.props.answered}
+              forList={true}
+            />
           </li>
         ))}
       </ul>

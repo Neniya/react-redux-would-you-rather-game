@@ -3,6 +3,9 @@
   padding-left: 20px;
   background-position: 0, 1px;
 }
+ul {
+  list-style: none;
+}
 
 .sign-in {
   display: flex;
@@ -15,7 +18,7 @@
 .sign-in-box {
   margin-top: 20px;
   padding: 15px;
-  width: 200px;
+  width: 250px;
   border-width: 2px;
   border-style: solid;
   border-color: black;
@@ -26,4 +29,86 @@
 
 .avatar {
   width: 60px;
+  height: 60px;
+  margin-top: 30px;
+  padding-right: 50px;
+}
+.question-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.list {
+  border-style: solid;
+  border-color: #fdcd73;
+  padding-top: 20px;
+  margin-top: 0px;
+}
+.question-list {
+  width: 500px;
+  margin-top: 40px;
+}
+.question {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
+  border-style: solid;
+  border-color: #fdcd73;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.switch-buttons {
+  display: flex;
+  flex-direction: row;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.switch-buttons button {
+  width: 250px;
+  height: 30px;
+  padding-bottom: 0px;
+}
+
+.active-button {
+  background-color: #fdcd73;
+  border-style: solid;
+  font-size: 120%;
+}
+.question-button {
+  border-style: none;
+  background-color: white;
+  font-size: 110%;
+}
+#unanswerd-button:active,
+#answerd-button:active {
+  background-color: #c29d59;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+}
+
+.question-body {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+}
+progress {
+  -webkit-appearance: none;
+  height: 20px;
+  border-radius: 0px;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: #f5ab21;
 }
