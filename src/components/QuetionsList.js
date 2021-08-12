@@ -7,11 +7,7 @@ class QuestionsList extends Component {
       <ul className="list">
         {this.props.questions.map((questionId) => (
           <li key={questionId}>
-            <Question
-              id={questionId}
-              answered={this.props.answered}
-              forList={true}
-            />
+            <Question id={questionId} answered={this.props.answered} />
           </li>
         ))}
       </ul>

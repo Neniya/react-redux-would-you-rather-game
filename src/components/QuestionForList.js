@@ -6,11 +6,7 @@ class QuestionForList extends Component {
   handleViewPool = (e, id) => {
     e.preventDefault();
     console.log(id);
-    this.props.history.push(`/question/${id}`, {
-      id,
-      answered: false,
-      forList: false,
-    });
+    this.props.history.push(`/question/${id}`);
   };
   render() {
     console.log("props", this.props);
