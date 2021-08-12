@@ -1,4 +1,4 @@
-export function formatQuestion(question, author) {
+export function formatQuestion(question, author, authedUser) {
   const { id, optionOne, optionTwo, timestamp } = question;
   const { name, avatarURL } = author;
 
@@ -9,5 +9,8 @@ export function formatQuestion(question, author) {
     optionOne,
     optionTwo,
     avatar: avatarURL,
+    answered:
+      optionOne.votes.includes(authedUser) ||
+      optionTwo.votes.includes(authedUser),
   };
 }

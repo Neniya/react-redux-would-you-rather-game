@@ -6,7 +6,12 @@
 ul {
   list-style: none;
 }
-
+.btn {
+  background-color: orange;
+  margin-top: 20px;
+  height: 30px;
+  border-radius: 10px;
+}
 .sign-in {
   display: flex;
   flex-direction: column;

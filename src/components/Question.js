@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
+import QuestionForList from "./QuestionForList";
+import { Link } from "react-router-dom";
 
 class Question extends Component {
   state = {
@@ -13,14 +15,13 @@ class Question extends Component {
     }));
   };
   render() {
-    const { question, forList, answered } = this.props;
+    const { question } = this.props;
+    console.log(this.props);
     if (question === null) {
       return <p>This question doesen't exist</p>;
     }
-    console.log(this.props);
-    console.log("forList", forList);
 
-    const { name, avatar, timestamp, optionOne, optionTwo, id } = question;
+    const { name, avatar, optionOne, optionTwo, id, answered } = question;
     const answersOptionOne = optionOne.votes.length;
     const answersOptionTwo = optionTwo.votes.length;
     const answers = answersOptionOne + answersOptionTwo;
@@ -34,65 +35,8 @@ class Question extends Component {
           <div>
             {answered && <h3>Results:</h3>}
             <h2> Would You Rather:</h2>
-            {answered ? (
-              <div>
-                <p>{optionOne.text}</p>
-                <progress
-                  id="percentOne"
-                  value={`${persentOptionOne}`}
-                  max="100"
-                ></progress>
-                <br />
-                <label htmlFor="percentOne">
-                  {answersOptionOne} out of {answers} votes
-                </label>
 
-                <p>{optionTwo.text}</p>
-                <progress
-                  id="percentTwo"
-                  value={`${100 - persentOptionOne}`}
-                  max="100"
-                ></progress>
-                <br />
-                <label htmlFor="percentTwo">
-                  {answersOptionTwo} out of {answers} votes
-                </label>
-              </div>
-            ) : (
-              <div>
-                {forList ? (
-                  `${optionOne.text.slice(
-                    0,
-                    Math.trunc(optionOne.text.length / 2)
-                  )}...`
-                ) : (
-                  <form
-                    className="answers"
-                    onSubmit={(e) => this.handleAnswerSubmit(e)}
-                  >
-                    <div>
-                      <input
-                        type="radio"
-                        name="question"
-                        value="optionOne"
-                        id="option-one"
-                      />
-                      <label htmlFor="option-one">{optionOne.text}</label>
-                    </div>
-                    <div>
-                      <input
-                        type="radio"
-                        name="question"
-                        value="optionTwo"
-                        id="option-two"
-                        onChange={(e) => this.switchOption(e.target.value)}
-                      />
-                      <label htmlFor="option-one">{optionTwo.text}</label>
-                    </div>
-                  </form>
-                )}
-              </div>
-            )}
+            <QuestionForList textQ={optionOne.text} id={id} />
           </div>
         </div>
       </div>
@@ -100,17 +44,12 @@ class Question extends Component {
   }
 }
 
-function mapStateToProps(
-  { questions, authedUser, users },
-  { id, answered, forList }
-) {
+function mapStateToProps({ questions, authedUser, users }, { id }) {
   const question = questions[id];
   return {
     authedUser,
-    answered,
-    forList,
     question: question
-      ? formatQuestion(question, users[question.author])
+      ? formatQuestion(question, users[question.author], authedUser)
       : null,
   };
 }
