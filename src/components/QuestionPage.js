@@ -7,11 +7,16 @@ class QuestionPage extends Component {
   state = {
     option: "",
   };
-  //   switchOption = (option) => {
-  //     this.setState(() => ({
-  //       option,
-  //     }));
-  //   };
+  switchOption = (option) => {
+    this.setState(() => ({
+      option,
+    }));
+  };
+
+  handleAnswerSubmit = (e) => {
+    e.preventDefault();
+    // Todo: add functionality process answer
+  };
   render() {
     const { question } = this.props;
 
@@ -47,40 +52,38 @@ class QuestionPage extends Component {
         </label>
       </div>
     ) : (
-      <div></div>
+      <div>
+        <form className="answers" onSubmit={(e) => this.handleAnswerSubmit(e)}>
+          <div>
+            <input
+              type="radio"
+              name="question"
+              value="optionOne"
+              id="option-one"
+            />
+            <label htmlFor="option-one">{optionOne.text}</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="question"
+              value="optionTwo"
+              id="option-two"
+              onChange={(e) => this.switchOption(e.target.value)}
+            />
+            <label htmlFor="option-one">{optionTwo.text}</label>
+          </div>
+          <button className="btn"> Submit</button>
+        </form>
+      </div>
     );
     console.log(questionText);
     return (
       <QuestionForm question={question} questionText={questionText} />
       //             {: (
       //               <div>
-      //                 {forList ? (
-      //                   <QuestionForList textQ={optionOne.text} id={id} />
-      //                 ) : (
-      //                   <form
-      //                     className="answers"
-      //                     onSubmit={(e) => this.handleAnswerSubmit(e)}
-      //                   >
-      //                     <div>
-      //                       <input
-      //                         type="radio"
-      //                         name="question"
-      //                         value="optionOne"
-      //                         id="option-one"
-      //                       />
-      //                       <label htmlFor="option-one">{optionOne.text}</label>
-      //                     </div>
-      //                     <div>
-      //                       <input
-      //                         type="radio"
-      //                         name="question"
-      //                         value="optionTwo"
-      //                         id="option-two"
-      //                         onChange={(e) => this.switchOption(e.target.value)}
-      //                       />
-      //                       <label htmlFor="option-one">{optionTwo.text}</label>
-      //                     </div>
-      //                   </form>
+      //                 (
+      //
       //                 )}
       //               </div>
       //             )}

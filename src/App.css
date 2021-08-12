@@ -36,7 +36,7 @@ ul {
   width: 60px;
   height: 60px;
   margin-top: 30px;
-  padding-right: 50px;
+  padding-right: 20px;
 }
 .question-list {
   display: flex;
@@ -51,18 +51,21 @@ ul {
 }
 .question-list {
   width: 500px;
+  margin-right: auto;
+  margin-left: auto;
   margin-top: 40px;
+  padding: 30px;
 }
 .question {
-  display: flex;
-  flex-direction: column;
-  margin-right: 30px;
-
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
   border-style: solid;
   border-color: #fdcd73;
+
   margin-bottom: 20px;
   padding: 10px;
-  width: 470px;
+  width: 390px;
 }
 
 .switch-buttons {
