@@ -57,10 +57,12 @@ ul {
   display: flex;
   flex-direction: column;
   margin-right: 30px;
+
   border-style: solid;
   border-color: #fdcd73;
   margin-bottom: 20px;
   padding: 10px;
+  width: 470px;
 }
 
 .switch-buttons {
