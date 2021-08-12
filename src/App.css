@@ -134,3 +134,27 @@ progress[value]::-webkit-progress-bar {
 progress[value]::-webkit-progress-value {
   background-color: #f5ab21;
 }
+
+.nav {
+  background-color: #f5ab21;
+}
+.nav,
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav-link {
+  margin-left: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+.active {
+  font-weight: bold;
+  color: black;
+}
+.user-name {
+  font-size: 85%;
+}
