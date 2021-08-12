@@ -2,30 +2,18 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
 import QuestionForList from "./QuestionForList";
+import QuestionForm from "./QuestionForm";
 
 class Question extends Component {
   render() {
     const { question } = this.props;
-    const { name, avatar, answered, optionOne } = question;
 
     if (question === null) {
       return <p>This question doesen't exist</p>;
     }
-
-    return (
-      <div className="question">
-        {answered ? <h3> Asked by {name}:</h3> : <h3> {name} asks:</h3>}
-        <div className="question-body">
-          <img src={avatar} alt={`Avatar of ${name}`} className="avatar" />
-          <div>
-            {answered && <h3>Results:</h3>}
-            <h2> Would You Rather:</h2>
-
-            <QuestionForList textQ={optionOne.text} />
-          </div>
-        </div>
-      </div>
-    );
+    const { id, optionOne } = this.props.question;
+    const questionText = <QuestionForList textQ={optionOne.text} id={id} />;
+    return <QuestionForm question={question} questionText={questionText} />;
   }
 }
 
