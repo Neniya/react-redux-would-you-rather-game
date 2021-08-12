@@ -13,7 +13,7 @@ function addQuestion(question) {
 
 export function handleAddQuestion(textOptionOne, textOptionTwo) {
   return (dispatch, getState) => {
-    const authedUser = getState();
+    const { authedUser } = getState();
     dispatch(showLoading);
 
     console.log("action:", textOptionOne, textOptionTwo, authedUser);

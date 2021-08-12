@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import QuestionsList from "./QuetionsList";
+import Nav from "./Nav";
 
 class Dashboard extends Component {
   state = {
@@ -42,35 +43,39 @@ class Dashboard extends Component {
   render() {
     console.log("dashboard", this.props);
     return (
-      <div className="question-list">
-        <div className="switch-buttons">
-          <button
-            id="unanswerd-button"
-            className="active-button"
-            onClick={() => this.changeQuestionPage(false)}
-          >
-            <b> Unanswerd Questions </b>
-          </button>
-          <button
-            id="answerd-button"
-            className="question-button "
-            onClick={() => this.changeQuestionPage(true)}
-          >
-            <b>Answerd Questions</b>
-          </button>
-        </div>
+      <div>
+        <Nav />
 
-        {this.state.answeredQuestionPage ? (
-          <QuestionsList
-            questions={this.props.answeredQuestions}
-            answered={true}
-          />
-        ) : (
-          <QuestionsList
-            questions={this.props.unansweredQuestions}
-            answered={false}
-          />
-        )}
+        <div className="question-list">
+          <div className="switch-buttons">
+            <button
+              id="unanswerd-button"
+              className="active-button"
+              onClick={() => this.changeQuestionPage(false)}
+            >
+              <b> Unanswerd Questions </b>
+            </button>
+            <button
+              id="answerd-button"
+              className="question-button "
+              onClick={() => this.changeQuestionPage(true)}
+            >
+              <b>Answerd Questions</b>
+            </button>
+          </div>
+
+          {this.state.answeredQuestionPage ? (
+            <QuestionsList
+              questions={this.props.answeredQuestions}
+              answered={true}
+            />
+          ) : (
+            <QuestionsList
+              questions={this.props.unansweredQuestions}
+              answered={false}
+            />
+          )}
+        </div>
       </div>
     );
   }
