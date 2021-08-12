@@ -10,7 +10,10 @@ ul {
   background-color: orange;
   margin-top: 20px;
   height: 30px;
+  width: 150px;
   border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .sign-in {
   display: flex;
@@ -106,6 +109,15 @@ ul {
   display: flex;
   flex-direction: row;
   width: 400px;
+}
+.new-question-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-question-body input {
+  margin: 10px;
+  height: 20px;
 }
 progress {
   -webkit-appearance: none;
