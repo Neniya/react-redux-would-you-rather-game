@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { handleAddQuestion } from "../actions/questions";
 
 class NewQuestion extends Component {
   state = {
@@ -22,11 +24,19 @@ class NewQuestion extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    if (!(this.state.textOptionOne && this.state.textOptionTwo)) {
-      alert("please complite options!");
-    }
+    const optionOne = this.state.textOptionOne;
+    const optionTwo = this.state.textOptionTwo;
+    const { dispatch } = this.props;
+
+    dispatch(handleAddQuestion(optionOne, optionTwo));
+    this.setState(() => ({
+      textOptionOne: "",
+      textOptionTwo: "",
+    }));
+    this.props.history.push(`/dashboard`);
   };
   render() {
+    const { textOptionOne, textOptionTwo } = this.state;
     return (
       <div className="question">
         <h2>Crete New Question</h2>
@@ -40,19 +50,29 @@ class NewQuestion extends Component {
             type="text"
             id="new-option-one"
             placeholder="Enter Option One"
+            value={textOptionOne}
             onChange={(e) => this.handleChange(e, true)}
           ></input>
           <input
             type="text"
             id="new-option-two"
             placeholder="Enter Option Two"
+            value={textOptionTwo}
             onChange={(e) => this.handleChange(e, false)}
           ></input>
-          <button class="btn">Submit</button>
+          <button
+            className="btn"
+            type="submit"
+            disabled={
+              this.state.texOptionOne === "" || this.state.textOptionTwo === ""
+            }
+          >
+            Submit
+          </button>
         </form>
       </div>
     );
   }
 }
 
-export default NewQuestion;
+export default connect()(NewQuestion);
