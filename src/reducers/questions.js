@@ -17,6 +17,7 @@ export default function questions(state = {}, action) {
         [action.question.id]: action.question,
       };
     case SAVE_QUESTION_ANSWER:
+      console.log("SAVE_QUESTION_ANSWER", action);
       const { qid, answer, authedUser } = action;
       return {
         ...state,

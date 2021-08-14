@@ -16,7 +16,9 @@ class QuestionPage extends Component {
 
   handleAnswerSubmit = (e, id) => {
     e.preventDefault();
-    handleSaveAnswer(id, this.state.answer);
+    const { dispatch } = this.props;
+    dispatch(handleSaveAnswer(id, this.state.option));
+    this.props.history.push(`/question/${id}`);
   };
   render() {
     const { question } = this.props;
@@ -104,6 +106,7 @@ function mapStateToProps({ questions, authedUser, users }, props) {
   const question = questions[id];
   return {
     authedUser,
+    users,
     question: question
       ? formatQuestion(question, users[question.author], authedUser)
       : null,
