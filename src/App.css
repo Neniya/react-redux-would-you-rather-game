@@ -158,3 +158,15 @@ progress[value]::-webkit-progress-value {
 .user-name {
   font-size: 85%;
 }
+
+.user-log-out {
+  display: flex;
+  flex-direction: row;
+}
+
+.log-out {
+  font-size: 85%;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: #970505;
+}
