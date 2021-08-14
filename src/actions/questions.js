@@ -52,7 +52,6 @@ export function handleSaveAnswer(qid, answer) {
   return (dispatch, getState) => {
     const { authedUser } = getState();
     dispatch(showLoading);
-    console.log("saveAnswer", qid, answer, authedUser);
 
     return saveQuestionAnswer({
       authedUser,
