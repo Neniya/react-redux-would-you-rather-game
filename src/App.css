@@ -3,9 +3,11 @@
   padding-left: 20px;
   background-position: 0, 1px;
 }
+
 ul {
   list-style: none;
 }
+
 .btn {
   background-color: orange;
   margin-top: 20px;
@@ -41,10 +43,14 @@ ul {
   margin-top: 30px;
   padding-right: 20px;
 }
-.question-list {
+.question-list,
+.leader-board-list {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  width: 500px;
+  margin-top: 40px;
+  padding: 30px;
 }
 .list {
   border-style: solid;
@@ -52,16 +58,24 @@ ul {
   padding-top: 20px;
   margin-top: 0px;
 }
-.question-list {
-  width: 500px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 40px;
-  padding: 30px;
+.leader-board-list {
+  border-style: solid;
+  border-color: #fdcd73;
 }
-.question {
+
+.question,
+.leader-board-user {
   display: block;
   margin-right: auto;
+}
+
+.leader-board-user {
+  display: flex;
+  flex-direction: row;
+}
+
+.question,
+.leader-board-user {
   margin-left: auto;
   border-style: solid;
   border-color: #fdcd73;

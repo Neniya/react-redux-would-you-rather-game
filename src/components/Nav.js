@@ -33,6 +33,15 @@ class Nav extends Component {
               New question
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/leaderboard"
+              activeClassName="active"
+              className="nav-link"
+            >
+              Leader board
+            </NavLink>
+          </li>
         </ul>
         <div className="user-log-out">
           <p className="user-name">
