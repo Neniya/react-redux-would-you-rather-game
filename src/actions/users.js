@@ -9,20 +9,3 @@ export function getUsers(users) {
     users,
   };
 }
-
-export function saveUserAnswer(authedUser, qid, answer) {
-  return {
-    type: SAVE_QUESTION_ANSWER,
-    authedUser,
-    qid,
-    answer,
-  };
-}
-
-export function saveUserQuestion(authedUser, id) {
-  return {
-    type: ADD_QUESTION,
-    authedUser,
-    id,
-  };
-}

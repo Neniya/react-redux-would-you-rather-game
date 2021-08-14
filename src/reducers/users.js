@@ -22,12 +22,13 @@ export default function users(state = {}, action) {
         },
       };
     case ADD_QUESTION:
-      const { authedUser, id } = action;
+      const { author, id } = action.question;
+      console.log("data", action);
       return {
         ...state,
-        [authedUser]: {
-          ...state[authedUser],
-          questions: state[authedUser].questions.concat([id]),
+        [author]: {
+          ...state[author],
+          questions: state[author].questions.concat([id]),
         },
       };
     default:

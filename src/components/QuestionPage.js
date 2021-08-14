@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
+import { handleSaveAnswer } from "../actions/questions";
 import QuestionForm from "./QuestionForm";
 
 class QuestionPage extends Component {
@@ -13,9 +14,9 @@ class QuestionPage extends Component {
     }));
   };
 
-  handleAnswerSubmit = (e) => {
+  handleAnswerSubmit = (e, id) => {
     e.preventDefault();
-    // Todo: add functionality process answer
+    handleSaveAnswer(id, this.state.answer);
   };
   render() {
     const { question } = this.props;
@@ -53,13 +54,17 @@ class QuestionPage extends Component {
       </div>
     ) : (
       <div>
-        <form className="answers" onSubmit={(e) => this.handleAnswerSubmit(e)}>
+        <form
+          className="answers"
+          onSubmit={(e) => this.handleAnswerSubmit(e, id)}
+        >
           <div>
             <input
               type="radio"
               name="question"
               value="optionOne"
               id="option-one"
+              onChange={(e) => this.switchOption(e.target.value)}
             />
             <label htmlFor="option-one">{optionOne.text}</label>
           </div>

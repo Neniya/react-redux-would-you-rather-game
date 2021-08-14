@@ -24,7 +24,6 @@ export function handleAddQuestion(textOptionOne, textOptionTwo) {
     })
       .then((question) => {
         dispatch(addQuestion(question));
-        dispatch(saveUserQuestion(question.author, question.id));
       })
       .then(() => dispatch(hideLoading));
   };
@@ -37,7 +36,7 @@ export function getQuestions(questions) {
   };
 }
 
-export function saveQuestionAnswer(authedUser, qid, answer) {
+export function saveAnswer(authedUser, qid, answer) {
   return {
     type: SAVE_QUESTION_ANSWER,
     authedUser,
@@ -46,6 +45,19 @@ export function saveQuestionAnswer(authedUser, qid, answer) {
   };
 }
 
-// export function handleSaveAnswer(qid, answer){
+export function handleSaveAnswer(qid, answer) {
+  return (dispatch, getState) => {
+    const { authedUser } = getState();
+    dispatch(showLoading);
 
-// }
+    return saveQuestionAnswer({
+      authedUser,
+      qid,
+      answer,
+    })
+      .then(() => {
+        dispatch(saveAnswer(authedUser, qid, answer));
+      })
+      .then(() => dispatch(hideLoading));
+  };
+}
