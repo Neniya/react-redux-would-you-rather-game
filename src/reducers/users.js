@@ -11,7 +11,6 @@ export default function users(state = {}, action) {
       };
     case SAVE_USER_ANSWER:
       const { authedUser, qid, answer } = action;
-      console.log("user", authedUser, qid, answer);
       return {
         ...state,
         [authedUser]: {
@@ -24,7 +23,6 @@ export default function users(state = {}, action) {
       };
     case ADD_USER_QUESTION:
       const { author, id } = action;
-      console.log("data", action);
       return {
         ...state,
         [author]: {
