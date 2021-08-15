@@ -16,33 +16,36 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props.authedUser);
     return (
       <BrowserRouter>
-        <Fragment>
+        {!this.props.authedUser ? (
           <div>
-            {this.props.loading === true ? null : (
-              <div>
-                <Route path="/" exact component={Login} />
-              </div>
-            )}
-          </div>
-          <div>
-            <Nav />
             <div>
-              <Route path="/dashboard" exact component={Dashboard} />
-              <Route path="/question/:id" component={QuestionPage} />
-              <Route path="/new" component={NewQuestion} />
-              <Route path="/leaderboard" component={LeaderBoard} />
+              <Route path="/" exact component={Login} />
             </div>
           </div>
-        </Fragment>
+        ) : (
+          <Fragment>
+            <div>
+              <Nav />
+              <div>
+                <Route path="/dashboard" exact component={Dashboard} />
+                <Route path="/question/:id" component={QuestionPage} />
+                <Route path="/new" component={NewQuestion} />
+                <Route path="/leaderboard" component={LeaderBoard} />
+              </div>
+            </div>
+          </Fragment>
+        )}
       </BrowserRouter>
     );
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ authedUser, users }) {
   return {
+    authedUser,
     loading: users === {},
   };
 }
