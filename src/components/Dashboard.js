@@ -18,30 +18,17 @@ class Dashboard extends Component {
       answeredQuestionPage: answered,
     }));
     if (answered) {
-      document
-        .getElementById("unanswerd-button")
-        .classList.remove("active-button");
-      document
-        .getElementById("unanswerd-button")
-        .classList.add("question-button");
-      document.getElementById("answerd-button").classList.add("active-button");
-      document
-        .getElementById("answerd-button")
-        .classList.remove("question-button");
+      this.addRemoveClasses("answerd-button", "unanswerd-button");
     } else {
-      document
-        .getElementById("unanswerd-button")
-        .classList.add("active-button");
-      document
-        .getElementById("answerd-button")
-        .classList.add("question-button");
-      document
-        .getElementById("answerd-button")
-        .classList.remove("active-button");
-      document
-        .getElementById("unanswerd-button")
-        .classList.remove("question-button");
+      this.addRemoveClasses("unanswerd-button", "answerd-button");
     }
+  };
+
+  addRemoveClasses = (activeButton, questionButton) => {
+    document.getElementById(questionButton).classList.remove("active-button");
+    document.getElementById(questionButton).classList.add("question-button");
+    document.getElementById(activeButton).classList.add("active-button");
+    document.getElementById(activeButton).classList.remove("question-button");
   };
   render() {
     return (
