@@ -34,7 +34,7 @@ class QuestionPage extends Component {
     const answersOptionOne = optionOne.votes.length;
     const answersOptionTwo = optionTwo.votes.length;
     const answers = answersOptionOne + answersOptionTwo;
-    const persentOptionOne = (answersOptionOne * 100) / answers;
+    const persentOptionOne = Math.round((answersOptionOne * 100) / answers);
     const questionText = answered ? (
       <div>
         <p>{optionOne.text}</p>
@@ -45,7 +45,7 @@ class QuestionPage extends Component {
         ></progress>
         <br />
         <label htmlFor="percentOne">
-          {answersOptionOne} out of {answers} votes
+          {answersOptionOne} out of {answers} votes ({persentOptionOne}%)
         </label>
         <p>{optionTwo.text}</p>
         <progress
@@ -55,7 +55,7 @@ class QuestionPage extends Component {
         ></progress>
         <br />
         <label htmlFor="percentTwo">
-          {answersOptionTwo} out of {answers} votes
+          {answersOptionTwo} out of {answers} votes ({100 - persentOptionOne}%)
         </label>
       </div>
     ) : (
