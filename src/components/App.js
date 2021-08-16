@@ -10,8 +10,12 @@ import NewQuestion from "./NewQuestion";
 import Nav from "./Nav";
 import LeaderBoard from "./LeaderBoard";
 import LoadingBar from "react-redux-loading";
+import PropTypes from "prop-types";
 
 class App extends Component {
+  static propTypes = {
+    authedUser: PropTypes.string,
+  };
   componentDidMount() {
     this.props.dispatch(handleInitialData());
   }

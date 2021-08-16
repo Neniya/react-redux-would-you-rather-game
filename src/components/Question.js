@@ -3,8 +3,12 @@ import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
 import QuestionForList from "./QuestionForList";
 import QuestionForm from "./QuestionForm";
+import PropTypes from "prop-types";
 
 class Question extends Component {
+  static propTypes = {
+    question: PropTypes.object,
+  };
   render() {
     const { question } = this.props;
 

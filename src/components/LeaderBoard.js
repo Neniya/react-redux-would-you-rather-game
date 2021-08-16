@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 class LeaderBoard extends Component {
+  static propTypes = {
+    usersLeaderBord: PropTypes.array.isRequired,
+  };
+
   render() {
     return (
       <div className="leader-board">

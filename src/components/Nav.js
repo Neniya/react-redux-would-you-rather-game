@@ -3,8 +3,12 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
 import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class Nav extends Component {
+  static propTypes = {
+    user: PropTypes.object.isRequired,
+  };
   handleLogOut = (e) => {
     e.preventDefault();
     const { dispatch } = this.props;

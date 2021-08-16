@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class QuestionForList extends Component {
+  static propTypes = {
+    textQ: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  };
   handleViewPool = (e, id) => {
     e.preventDefault();
-    console.log(id);
     this.props.history.push(`/question/${id}`);
   };
   render() {
-    console.log("props", this.props);
     const text = this.props.textQ.slice(
       0,
       Math.trunc(this.props.textQ.length / 2)

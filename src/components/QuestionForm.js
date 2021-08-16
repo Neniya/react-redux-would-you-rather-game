@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class QuestionForm extends Component {
+  static propTypes = {
+    question: PropTypes.object.isRequired,
+    questionText: PropTypes.object.isRequired,
+  };
   render() {
     const { name, avatar, answered } = this.props.question;
 

@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import Question from "./Question";
+import PropTypes from "prop-types";
 
 class QuestionsList extends Component {
+  static propTypes = {
+    questions: PropTypes.array.isRequired,
+  };
   render() {
     return (
       <ul className="list">

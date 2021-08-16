@@ -3,8 +3,12 @@ import { connect } from "react-redux";
 import { formatQuestion } from "../utils/helpers";
 import { handleSaveAnswer } from "../actions/questions";
 import QuestionForm from "./QuestionForm";
+import PropTypes from "prop-types";
 
 class QuestionPage extends Component {
+  static propTypes = {
+    question: PropTypes.object.isRequired,
+  };
   state = {
     option: "",
   };
@@ -26,7 +30,7 @@ class QuestionPage extends Component {
     if (question === null) {
       return <p>This question doesen't exist</p>;
     }
-    const { name, avatar, optionOne, optionTwo, id, answered } = question;
+    const { optionOne, optionTwo, id, answered } = question;
     const answersOptionOne = optionOne.votes.length;
     const answersOptionTwo = optionTwo.votes.length;
     const answers = answersOptionOne + answersOptionTwo;
@@ -85,18 +89,7 @@ class QuestionPage extends Component {
       </div>
     );
     console.log(questionText);
-    return (
-      <QuestionForm question={question} questionText={questionText} />
-      //             {: (
-      //               <div>
-      //                 (
-      //
-      //                 )}
-      //               </div>
-      //             )}
-      //           </div>
-      //         </div>}
-    );
+    return <QuestionForm question={question} questionText={questionText} />;
   }
 }
 
@@ -105,8 +98,6 @@ function mapStateToProps({ questions, authedUser, users }, props) {
   console.log(props);
   const question = questions[id];
   return {
-    authedUser,
-    users,
     question: question
       ? formatQuestion(question, users[question.author], authedUser)
       : null,

@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import QuestionsList from "./QuetionsList";
+import PropTypes from "prop-types";
 
 class Dashboard extends Component {
+  static propTypes = {
+    answeredQuestions: PropTypes.array.isRequired,
+    unansweredQuestions: PropTypes.array.isRequired,
+  };
+
   state = {
     answeredQuestionPage: false,
   };
@@ -83,7 +89,6 @@ function mapStateToProps({ questions, authedUser, users }) {
     : [];
 
   return {
-    user,
     answeredQuestions,
     unansweredQuestions,
   };
