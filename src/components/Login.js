@@ -38,7 +38,9 @@ class Login extends Component {
           className="sign-in sign-in-box"
           onSubmit={(e) => this.handleUserSubmit(e)}
         >
-          <label htmlFor="select-user">Sign in</label>
+          <label htmlFor="select-user">
+            <b>Sign in</b>
+          </label>
           <select
             className="sign-in-select"
             id="select-user"
