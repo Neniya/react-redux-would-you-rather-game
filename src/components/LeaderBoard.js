@@ -13,12 +13,23 @@ class LeaderBoard extends Component {
                 alt={`Avatar of ${user.name}`}
                 className="avatar"
               />
-              <div>
-                <p>{user.name}</p>
-                <p>Answered questions {user.answerdQuestions}</p>
-                <p>Created questions {user.createdQuestions}</p>
+              <div className="leader-board-info">
+                <div className="user-name">
+                  <b>{user.name}</b>
+                </div>
+                <p>
+                  Answered questions: <b>{user.answerdQuestions}</b>
+                </p>
+                <p>
+                  Created questions: <b>{user.createdQuestions}</b>
+                </p>
               </div>
-              <p>Score {user.score}</p>
+              <div className=" score ">
+                <div>Score </div>
+                <div className="score-number">
+                  <b>{user.score}</b>
+                </div>
+              </div>
             </li>
           ))}
         </ul>

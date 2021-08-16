@@ -88,9 +88,23 @@ ul {
 .switch-buttons {
   display: flex;
   flex-direction: row;
-
   margin-left: auto;
   margin-right: auto;
+}
+
+.score {
+  flex-direction: column;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 120%;
+}
+
+.score-number {
+  padding: 20px;
+  margin-top: 10px;
+  background-color: #fdcd73;
+  border-radius: 50px;
 }
 
 .switch-buttons button {
@@ -183,4 +197,12 @@ progress[value]::-webkit-progress-value {
   margin-left: 20px;
   margin-right: 20px;
   color: #970505;
+}
+
+.leader-board-info {
+  padding: 0px 20px;
+  border-style: dotted;
+  border-top: none;
+  border-bottom: none;
+  border-color: #fdcd73;
 }
