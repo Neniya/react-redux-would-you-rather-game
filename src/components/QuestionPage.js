@@ -10,7 +10,7 @@ class QuestionPage extends Component {
     question: PropTypes.object.isRequired,
   };
   state = {
-    option: "",
+    option: "optionOne",
   };
   switchOption = (option) => {
     this.setState(() => ({
@@ -70,6 +70,7 @@ class QuestionPage extends Component {
               name="question"
               value="optionOne"
               id="option-one"
+              checked
               onChange={(e) => this.switchOption(e.target.value)}
             />
             <label htmlFor="option-one">{optionOne.text}</label>
