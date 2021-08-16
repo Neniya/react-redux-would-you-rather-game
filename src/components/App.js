@@ -28,7 +28,9 @@ class App extends Component {
             <div>
               <Route path="/" exact component={Login} />
             </div>
-            <p>Please log in for continue!</p>
+            {window.location.pathname !== "/" && (
+              <p>Please log in to continue!</p>
+            )}
           </div>
         ) : (
           <Fragment>
