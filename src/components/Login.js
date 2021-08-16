@@ -18,16 +18,10 @@ class Login extends Component {
     e.preventDefault();
     const { userId } = this.state;
     const { dispatch } = this.props;
-    console.log("Login", userId);
     dispatch(setAuthedUser(userId));
     this.props.history.push(`/dashboard`);
   };
   render() {
-    // const userStyle = (avatarURL) => ({
-    //   background: `url(${"../utils/avatars/1.png"})`,
-    // });
-    console.log(this.props);
-
     return (
       <div className="sign-in">
         <h1>Welcome to Would You Rather Game!</h1>
@@ -49,12 +43,7 @@ class Login extends Component {
           >
             <option value="">choose a user</option>
             {this.props.users.map((user) => (
-              <option
-                className="user-option"
-                key={user.id}
-                value={user.id}
-                //style={userStyle(user.avatarURL)}
-              >
+              <option className="user-option" key={user.id} value={user.id}>
                 {user.name}
               </option>
             ))}

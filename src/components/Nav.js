@@ -13,7 +13,6 @@ class Nav extends Component {
     this.props.history.push(`/`);
   };
   render() {
-    console.log("nav", this.props);
     const user = this.props.user;
     return (
       <nav className="nav">

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import QuestionsList from "./QuetionsList";
-import Nav from "./Nav";
 
 class Dashboard extends Component {
   state = {
@@ -19,12 +18,10 @@ class Dashboard extends Component {
       document
         .getElementById("unanswerd-button")
         .classList.add("question-button");
-      console.log(document.getElementById("unanswerd-button").classList);
       document.getElementById("answerd-button").classList.add("active-button");
       document
         .getElementById("answerd-button")
         .classList.remove("question-button");
-      console.log(document.getElementById("answerd-button").classList);
     } else {
       document
         .getElementById("unanswerd-button")
@@ -41,7 +38,6 @@ class Dashboard extends Component {
     }
   };
   render() {
-    console.log("dashboard", this.props);
     return (
       <div className="question-list">
         <div className="switch-buttons">
@@ -86,8 +82,6 @@ function mapStateToProps({ questions, authedUser, users }) {
       )
     : [];
 
-  console.log(answeredQuestions);
-  console.log(unansweredQuestions);
   return {
     user,
     answeredQuestions,

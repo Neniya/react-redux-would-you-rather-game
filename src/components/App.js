@@ -17,7 +17,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.authedUser);
     return (
       <BrowserRouter>
         {!this.props.authedUser ? (

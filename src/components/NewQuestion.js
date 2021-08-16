@@ -11,7 +11,6 @@ class NewQuestion extends Component {
   handleChange = (e, optionOne) => {
     e.preventDefault();
     const texOption = e.target.value;
-    console.log(texOption);
     optionOne
       ? this.setState(() => ({
           textOptionOne: texOption,
@@ -19,7 +18,6 @@ class NewQuestion extends Component {
       : this.setState(() => ({
           textOptionTwo: texOption,
         }));
-    console.log(this.state);
   };
 
   handleSubmit = (e) => {
