@@ -28,6 +28,7 @@ class App extends Component {
             <div>
               <Route path="/" exact component={Login} />
             </div>
+            <p>Please log in for continue!</p>
           </div>
         ) : (
           <Fragment>

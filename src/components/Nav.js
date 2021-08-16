@@ -13,7 +13,7 @@ class Nav extends Component {
     e.preventDefault();
     const { dispatch } = this.props;
 
-    dispatch(setAuthedUser(""));
+    dispatch(setAuthedUser(null));
     this.props.history.push(`/`);
   };
   render() {
