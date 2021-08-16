@@ -224,3 +224,11 @@ progress[value]::-webkit-progress-value {
   border-bottom: none;
   border-color: #fdcd73;
 }
+
+.center-box {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center;
+}

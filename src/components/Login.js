@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 
 class Login extends Component {
@@ -23,7 +24,11 @@ class Login extends Component {
     const { userId } = this.state;
     const { dispatch } = this.props;
     dispatch(setAuthedUser(userId));
-    this.props.history.push(`/dashboard`);
+    console.log(this.props.path);
+    const path = this.props.path !== "" ? this.props.path : "/dashboard";
+    console.log(path);
+    this.props.clearPath();
+    this.props.history.push(path);
   };
   render() {
     return (
@@ -69,4 +74,4 @@ function mapStateToProps({ users }) {
     users: Object.values(users),
   };
 }
-export default connect(mapStateToProps)(Login);
+export default withRouter(connect(mapStateToProps)(Login));
