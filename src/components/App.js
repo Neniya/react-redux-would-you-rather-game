@@ -9,6 +9,7 @@ import QuestionPage from "./QuestionPage";
 import NewQuestion from "./NewQuestion";
 import Nav from "./Nav";
 import LeaderBoard from "./LeaderBoard";
+import LoadingBar from "react-redux-loading";
 
 class App extends Component {
   componentDidMount() {
@@ -27,6 +28,7 @@ class App extends Component {
           </div>
         ) : (
           <Fragment>
+            <LoadingBar />
             <div>
               <Nav />
               <div>
