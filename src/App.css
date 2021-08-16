@@ -78,6 +78,7 @@ ul {
 .question,
 .leader-board-user {
   margin-left: auto;
+  margin-top: 20px;
   border-style: solid;
   border-color: #fdcd73;
 
@@ -152,6 +153,16 @@ ul {
 .new-question-body input {
   margin: 10px;
   height: 20px;
+}
+
+.users-answer {
+  border-style: double;
+  border-color: #f5ab21;
+  padding: 0px 10px;
+}
+
+.answer {
+  margin-left: 10px;
 }
 progress {
   -webkit-appearance: none;

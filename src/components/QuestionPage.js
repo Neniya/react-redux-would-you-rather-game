@@ -34,29 +34,39 @@ class QuestionPage extends Component {
     const answersOptionOne = optionOne.votes.length;
     const answersOptionTwo = optionTwo.votes.length;
     const answers = answersOptionOne + answersOptionTwo;
+    const userAnswerOptionOne = question.optionOne.votes.includes(
+      this.props.authedUser
+    )
+      ? true
+      : false;
     const persentOptionOne = Math.round((answersOptionOne * 100) / answers);
     const questionText = answered ? (
       <div>
-        <p>{optionOne.text}</p>
-        <progress
-          id="percentOne"
-          value={`${persentOptionOne}`}
-          max="100"
-        ></progress>
-        <br />
-        <label htmlFor="percentOne">
-          {answersOptionOne} out of {answers} votes ({persentOptionOne}%)
-        </label>
-        <p>{optionTwo.text}</p>
-        <progress
-          id="percentTwo"
-          value={`${100 - persentOptionOne}`}
-          max="100"
-        ></progress>
-        <br />
-        <label htmlFor="percentTwo">
-          {answersOptionTwo} out of {answers} votes ({100 - persentOptionOne}%)
-        </label>
+        <div className={userAnswerOptionOne ? "users-answer" : "answer"}>
+          <p>{optionOne.text}</p>
+          <progress
+            id="percentOne"
+            value={`${persentOptionOne}`}
+            max="100"
+          ></progress>
+          <br />
+          <label htmlFor="percentOne">
+            {answersOptionOne} out of {answers} votes ({persentOptionOne}%)
+          </label>
+        </div>
+        <div className={!userAnswerOptionOne ? "users-answer" : "answer"}>
+          <p>{optionTwo.text}</p>
+          <progress
+            id="percentTwo"
+            value={`${100 - persentOptionOne}`}
+            max="100"
+          ></progress>
+          <br />
+          <label htmlFor="percentTwo">
+            {answersOptionTwo} out of {answers} votes ({100 - persentOptionOne}
+            %)
+          </label>
+        </div>
       </div>
     ) : (
       <div>
@@ -99,6 +109,7 @@ function mapStateToProps({ questions, authedUser, users }, props) {
   console.log(props);
   const question = questions[id];
   return {
+    authedUser,
     question: question
       ? formatQuestion(question, users[question.author], authedUser)
       : null,
