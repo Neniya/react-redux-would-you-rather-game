@@ -12,7 +12,7 @@ class LeaderBoard extends Component {
       <div className="leader-board">
         <ul className="leader-board-list">
           {this.props.usersLeaderBord.map((user) => (
-            <li className="leader-board-user">
+            <li key={user.id} className="leader-board-user">
               <img
                 src={user.avatar}
                 alt={`Avatar of ${user.name}`}
@@ -46,6 +46,7 @@ class LeaderBoard extends Component {
 function mapStateToProps({ users }) {
   const usersLeaderBord = Object.values(users)
     .map((user) => ({
+      id: user.id,
       avatar: user.avatarURL,
       name: user.name,
       answerdQuestions: Object.keys(user.answers).length,
