@@ -99,14 +99,12 @@ class QuestionPage extends Component {
         </form>
       </div>
     );
-    console.log(questionText);
     return <QuestionForm question={question} questionText={questionText} />;
   }
 }
 
 function mapStateToProps({ questions, authedUser, users }, props) {
   const { id } = props.match.params;
-  console.log(props);
   const question = questions[id];
   return {
     authedUser,

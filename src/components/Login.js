@@ -24,9 +24,7 @@ class Login extends Component {
     const { userId } = this.state;
     const { dispatch } = this.props;
     dispatch(setAuthedUser(userId));
-    console.log(this.props.path);
     const path = this.props.path !== "" ? this.props.path : "/dashboard";
-    console.log(path);
     this.props.clearPath();
     this.props.history.push(path);
   };

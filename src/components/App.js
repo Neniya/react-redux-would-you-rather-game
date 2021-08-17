@@ -31,7 +31,6 @@ class App extends Component {
     this.setState(() => ({
       path: window.location.pathname,
     }));
-    console.log("done");
   };
   clearPath = () => {
     this.setState(() => ({
@@ -39,8 +38,6 @@ class App extends Component {
     }));
   };
   render() {
-    console.log(window.location.pathname);
-    console.log(window.location);
     return (
       <BrowserRouter>
         {!this.props.authedUser ? (
