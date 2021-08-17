@@ -7,51 +7,55 @@ In this app, users are able to answer questions, see which questions they haven�
 The application:
 
 1. First of all user have to sign in:
-   ![Sign in](img/logIn.png)
+
+  <img src="img/logIn.png" alt ="Log in" width="250"/>
 
 by choosing a user from available list of users:
-![List of users](img/listOfUsers.png)
+
+<img src="img/listOfUsers.png" alt ="List if users" width="250"/>
 
 2. After logging in the user is redirected to home page(dashboard). Where the user will see a list of questions. The questions are splitted to answered and unanswered questions. User can switch between them by using buttons on this page. By default it opens a list of unanswered questions:
 
-![Home page](img/UnansweredList.png)
+<img src="img/UnansweredList.png"alt ="Unanswered questions" width="250"/>
 
 answered questions:
-![Answered questions](img/answeredList.png)
+
+<img src="img/answeredList.png" alt ="Answered questions" width="250"/>
 
 3. The user can view the question by clicking the "View Poll" button.
    Unanswered question looks as:
 
-![Unanswered question](img/unanswered.png)
+<img src="img/unanswered.png"alt ="Unanswered question" width="250"/>
 
 There the user can vote and after that they will be redirected to the answered question's form. The same form will be opened if the user clicks the "View Poll" button on a page with answered questions. This page shows statistics on how other users voted. The answer that was chosen by the user is marked:
 
-![Answered question](img/answered.png)
+<img src="img/answered.png" alt ="Answered question" width="250"/>
 
 4. The user can add their own question:
 
-   <img src="img/new.png" width="250"/>
+   <img src="img/new.png" alt ="New Question" width="250"/>
 
    After user clicks button “Submit” question will be added to Database, user will be redirected to Home page and new question will be appeared in unanswered question's list.
 
 5. The user is able to navigate to the Leader board and check who is more active user:
-   ![Leader board](img/LeaderBoard.png)
+
+<img src="img/LeaderBoard.png" alt ="Leaderboaer" width="250"/>
 
 6. The user is able to navigate to the leaderboard, to a specific question, and to the form that allows the user to create a new question both from within the app and by typing in the address into the address bar.
    There is a navigation bar that is on all pages instead of the Login page.
 
-![Navigation](img/nav.png)
+<img src="img/nav.png" alt ="Navigation" width="250"/>
 
 7. If the user is not logged in and try to open any page by typing in the address into the address bar, they will receive a massage:
 
-![Please Log In](img/pleaseLogIn.png)
+<img src="img/nav.png" alt ="Please Log In" width="250"/>
 
 8. If the user try to receive a page that isn't exist, they will receive a massage:
 
- <img src="img/pleaseLogIn.png" width="250"/>
+ <img src="img/nav.png" alt ="Please Log In" width="250"/>
 after the user lologged ged in there will appear Error 404:
 
-![Error 404](img/404.png)
+<img src="img/404.png" alt ="Error 404" width="250"/>
 
 9. The user can log out and log in again.
 
