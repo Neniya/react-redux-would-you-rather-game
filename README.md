@@ -162,4 +162,4 @@ _Parameters_: Object that contains the following properties: `authedUser`, `qid`
 
 ## Authors
 
-Udacity(provided data base), Kotova Evgeniia
+Kotova Evgeniia, Udacity(provided data base)
