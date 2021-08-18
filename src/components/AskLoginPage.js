@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
-class WrongPage extends Component {
+class AskLoginPage extends Component {
   handleClickLogIn = (e) => {
-    this.props.clikcLogIn(e);
-    this.props.history.push("/");
+    this.props.history.push({
+      pathname: "/",
+      state: { referrer: this.props.path },
+    });
   };
   render() {
     return (
@@ -21,4 +23,4 @@ class WrongPage extends Component {
   }
 }
 
-export default withRouter(connect()(WrongPage));
+export default withRouter(connect()(AskLoginPage));

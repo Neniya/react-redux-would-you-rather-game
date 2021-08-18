@@ -24,9 +24,11 @@ class Login extends Component {
     const { userId } = this.state;
     const { dispatch } = this.props;
     dispatch(setAuthedUser(userId));
-    const path = this.props.path !== "" ? this.props.path : "/dashboard";
-    this.props.clearPath();
-    this.props.history.push(path);
+    if (this.props.location.state && this.props.location.state.referrer) {
+      this.props.history.push(this.props.location.state.referrer);
+    } else {
+      this.props.history.push("/dashboard");
+    }
   };
   render() {
     return (

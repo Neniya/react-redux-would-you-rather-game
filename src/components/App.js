@@ -12,66 +12,76 @@ import LeaderBoard from "./LeaderBoard";
 import LoadingBar from "react-redux-loading";
 import PropTypes from "prop-types";
 import Error404 from "./Error404";
-import WrongPage from "./WrongPage";
+import AskLoginPage from "./AskLoginPage";
+
+const PrivateRoute = ({ authedUser, component: Component, ...rest }) => {
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        authedUser ? (
+          <Component {...props} />
+        ) : (
+          <AskLoginPage
+            path={rest.path === "" ? window.location.pathname : rest.path}
+          />
+        )
+      }
+    />
+  );
+};
 
 class App extends Component {
   static propTypes = {
     authedUser: PropTypes.string,
   };
-  state = {
-    path: "",
-  };
+
   componentDidMount() {
     this.props.dispatch(handleInitialData());
   }
 
-  clikcLogIn = (e) => {
-    e.preventDefault();
-
-    this.setState(() => ({
-      path: window.location.pathname,
-    }));
-  };
-  clearPath = () => {
-    this.setState(() => ({
-      path: "",
-    }));
-  };
   render() {
     return (
       <BrowserRouter>
-        {!this.props.authedUser ? (
+        <Fragment>
+          <LoadingBar />
           <div>
+            <Nav />
             <div>
-              <Route path="/" exact>
-                <Login path={this.state.path} clearPath={this.clearPath} />
-              </Route>
+              <Switch>
+                <Route path="/" exact>
+                  <Login />
+                </Route>
+                <PrivateRoute
+                  path="/dashboard"
+                  authedUser={this.props.authedUser}
+                  exact
+                  component={Dashboard}
+                />
+                <PrivateRoute
+                  path="/question/:id"
+                  authedUser={this.props.authedUser}
+                  component={QuestionPage}
+                />
+                <PrivateRoute
+                  path="/add"
+                  authedUser={this.props.authedUser}
+                  component={NewQuestion}
+                />
+                <PrivateRoute
+                  path="/leaderboard"
+                  authedUser={this.props.authedUser}
+                  component={LeaderBoard}
+                />
+                <PrivateRoute
+                  path=""
+                  authedUser={this.props.authedUser}
+                  component={Error404}
+                />
+              </Switch>
             </div>
-            {window.location.pathname !== "/" && this.state.path === "" ? (
-              <div>
-                <WrongPage clikcLogIn={this.clikcLogIn} />
-              </div>
-            ) : (
-              ""
-            )}
           </div>
-        ) : (
-          <Fragment>
-            <LoadingBar />
-            <div>
-              <Nav />
-              <div>
-                <Switch>
-                  <Route path="/dashboard" exact component={Dashboard} />
-                  <Route path="/question/:id" component={QuestionPage} />
-                  <Route path="/add" component={NewQuestion} />
-                  <Route path="/leaderboard" component={LeaderBoard} />
-                  <Route path="" component={Error404} />
-                </Switch>
-              </div>
-            </div>
-          </Fragment>
-        )}
+        </Fragment>
       </BrowserRouter>
     );
   }

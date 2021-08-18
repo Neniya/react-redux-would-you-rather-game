@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 
 class Nav extends Component {
   static propTypes = {
-    user: PropTypes.object.isRequired,
+    user: PropTypes.object,
   };
   handleLogOut = (e) => {
     e.preventDefault();
