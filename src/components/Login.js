@@ -34,11 +34,7 @@ class Login extends Component {
     return (
       <div className="sign-in">
         <h1>Welcome to Would You Rather Game!</h1>
-        <img
-          src="https://cdn.pixabay.com/photo/2017/08/12/21/09/scale-2635397_1280.jpg"
-          alt="Would you rather?"
-          width="200"
-        />
+        <img src="images/scale.jpg" alt="Would you rather?" width="300" />
         <form
           className="sign-in sign-in-box"
           onSubmit={(e) => this.handleUserSubmit(e)}
