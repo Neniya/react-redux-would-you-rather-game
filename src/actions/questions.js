@@ -1,6 +1,6 @@
 import { saveQuestion, saveQuestionAnswer } from "../utils/api";
 import { showLoading, hideLoading } from "react-redux-loading";
-import { saveUserQuestion, saveUserAnswer } from "./users";
+import { saveUserQuestion } from "./users";
 
 export const GET_ALL_QUESTIONS = "GET_ALL_QUESTIONS";
 export const ADD_QUESTION = "ADD_QUESTION";
@@ -60,7 +60,6 @@ export function handleSaveAnswer(qid, answer) {
     })
       .then(() => {
         dispatch(saveAnswer(authedUser, qid, answer));
-        dispatch(saveUserAnswer(authedUser, qid, answer));
       })
       .then(() => dispatch(hideLoading));
   };

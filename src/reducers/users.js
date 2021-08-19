@@ -1,6 +1,6 @@
 import { GET_USERS } from "../actions/users";
-import { SAVE_USER_ANSWER } from "../actions/users";
 import { ADD_USER_QUESTION } from "../actions/users";
+import { SAVE_QUESTION_ANSWER } from "../actions/questions";
 
 export default function users(state = {}, action) {
   switch (action.type) {
@@ -9,7 +9,7 @@ export default function users(state = {}, action) {
         ...state,
         ...action.users,
       };
-    case SAVE_USER_ANSWER:
+    case SAVE_QUESTION_ANSWER:
       const { authedUser, qid, answer } = action;
       return {
         ...state,
