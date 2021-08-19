@@ -4,10 +4,11 @@ import { formatQuestion } from "../utils/helpers";
 import { handleSaveAnswer } from "../actions/questions";
 import QuestionForm from "./QuestionForm";
 import PropTypes from "prop-types";
+import Error404 from "./Error404";
 
 class QuestionPage extends Component {
   static propTypes = {
-    question: PropTypes.object.isRequired,
+    question: PropTypes.object,
   };
   state = {
     option: "optionOne",
@@ -28,7 +29,7 @@ class QuestionPage extends Component {
     const { question } = this.props;
 
     if (question === null) {
-      return <p>This question doesen't exist</p>;
+      return <Error404 />;
     }
     const { optionOne, optionTwo, id, answered } = question;
     const answersOptionOne = optionOne.votes.length;
