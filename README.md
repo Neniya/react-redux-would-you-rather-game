@@ -42,18 +42,16 @@ There the user can vote and after that they will be redirected to the answered q
 <img src="img/LeaderBoard.png" alt ="Leaderboaer" width="250"/>
 
 6. The user is able to navigate to the leaderboard, to a specific question, and to the form that allows the user to create a new question both from within the app and by typing in the address into the address bar.
-   There is a navigation bar that is on all pages instead of the Login page.
+   There is a navigation bar that is on all pages exept the Login page.
 
 <img src="img/nav.png" alt ="Navigation" width="250"/>
 
-7. If the user is not logged in and try to open any page by typing in the address into the address bar, they will receive a massage:
+7. If the user try to open any page by typing in the address into the address bar, they will receive a massage:
 
-<img src="img/nav.png" alt ="Please Log In" width="250"/>
+<img src="img/pleaseLogIn.png" alt ="Please Log In" width="250"/>
 
-8. If the user try to receive a page that isn't exist, they will receive a massage:
-
- <img src="img/nav.png" alt ="Please Log In" width="250"/>
-after the user lologged ged in there will appear Error 404:
+8. If the user try to receive a page that isn't exist,
+   after the user lologged in there will appear Error 404:
 
 <img src="img/404.png" alt ="Error 404" width="250"/>
 
