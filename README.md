@@ -16,7 +16,7 @@ by choosing a user from available list of users:
 
 2. After logging in the user is redirected to home page(dashboard). Where the user will see a list of questions. The questions are splitted to answered and unanswered questions. User can switch between them by using buttons on this page. By default it opens a list of unanswered questions:
 
-<img src="img/UnansweredList.png"alt ="Unanswered questions" width="250"/>
+<img src="img/UnansweredList.png" alt ="Unanswered questions" width="250"/>
 
 answered questions:
 
@@ -25,7 +25,7 @@ answered questions:
 3. The user can view the question by clicking the "View Poll" button.
    Unanswered question looks as:
 
-<img src="img/unanswered.png"alt ="Unanswered question" width="250"/>
+<img src="img/unanswered.png" alt ="Unanswered question" width="250"/>
 
 There the user can vote and after that they will be redirected to the answered question's form. The same form will be opened if the user clicks the "View Poll" button on a page with answered questions. This page shows statistics on how other users voted. The answer that was chosen by the user is marked:
 
